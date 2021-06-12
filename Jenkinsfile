@@ -1,8 +1,8 @@
 pipeline {
     //this jdk need to be added in jenkins level Jenkins -> Manage Jenkins -> Global Tool Configuration -> jdk section
     // https://stackoverflow.com/questions/56842222/specify-java-home-in-jenkins-for-java-11
-    env.JAVA_HOME="${tool 'jdk1.8'}"
-    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+//     env.JAVA_HOME="${tool 'jdk1.8'}"
+//     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
     agent any
     tools {
         maven 'maven'
