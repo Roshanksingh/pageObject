@@ -4,10 +4,10 @@ pipeline {
 //     env.JAVA_HOME="${tool 'jdk1.8'}"
 //     env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
     agent any
-    tools {
-        maven 'maven'
-        jdk 'jdk1.8'
-    }
+//     tools {
+//         maven 'maven'
+//         jdk 'jdk1.8'
+//     }
     stages {
        stage('Preparation') {
            steps {
