@@ -14,7 +14,9 @@ pipeline {
             }
         }
         stage('Publishing results') {
-            step([$class: 'JUnitResultArchiver', checksName: '', testResults: 'pageObject/target/test-reports/*.xml'])
+          steps{
+           step[$class: 'JUnitResultArchiver', checksName: '', testResults: 'pageObject/target/test-reports/*.xml'])
+          }
         }
     }
 }
