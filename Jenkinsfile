@@ -24,21 +24,8 @@ pipeline {
                bat 'mvn clean test -DconfigPath=./env/qa-env.properties -Dwebdriver.chrome.driver=./chromedriver.exe'
             }
         }
-        
         stage('Publishing results') {
-            steps {
-              echo 'Generating Results'
-            }
-            post {
-               always {
-                   junit allowEmptyResults: true, testResults: 'target/surefire-reports/testng-results.xml'
-               }
-            }
+            step([$class: 'JUnitResultArchiver', checksName: '', testResults: 'pageObject/target/test-reports/*.xml'])
         }
-//          stage('Publishing results') {
-//             steps {
-//                 step([$class: 'Publisher', reportFilenamePattern: '**/surefire-reports/testng-results.xml'])
-//             }
-//         }
     }
 }
