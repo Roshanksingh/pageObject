@@ -20,7 +20,7 @@ pipeline {
         stage('Run tests') {
             steps {
                echo 'Executing tests'
-               sh 'mvn clean test  install'
+               sh 'mvn clean test -DconfigPath=./env/qa-env.properties -Dwebdriver.chrome.driver=./chromedriver.exe'
             }
         }
          stage('Publishing results') {
