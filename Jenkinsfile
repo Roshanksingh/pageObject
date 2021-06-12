@@ -12,13 +12,15 @@ pipeline {
        stage('Preparation') {
            steps {
                echo 'Preparing test run'
-               git credentialsId: 'Jenkins_bitbucket', url: 'https://jenkinsbst@bitbucket.org/bst_element/ui_test_automation.git'
+               sh "git clone https://github.com/Roshanksingh/pageObject.git"
+               sh "mvn clean compile"
+//                git credentialsId: 'Jenkins_bitbucket', url: 'https://jenkinsbst@bitbucket.org/bst_element/ui_test_automation.git'
             }
         }
         stage('Run tests') {
             steps {
                echo 'Executing tests'
-               sh 'mvn clean install'
+               sh 'mvn clean test  install'
             }
         }
          stage('Publishing results') {
