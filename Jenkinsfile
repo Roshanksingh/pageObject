@@ -12,15 +12,15 @@ pipeline {
        stage('Preparation') {
            steps {
                echo 'Preparing test run'
-               sh "git clone https://github.com/Roshanksingh/pageObject.git"
-               sh "mvn clean compile"
+               bat "git clone https://github.com/Roshanksingh/pageObject.git"
+               bat "mvn clean compile"
 //                git credentialsId: 'Jenkins_bitbucket', url: 'https://jenkinsbst@bitbucket.org/bst_element/ui_test_automation.git'
             }
         }
         stage('Run tests') {
             steps {
                echo 'Executing tests'
-               sh 'mvn clean test -DconfigPath=./env/qa-env.properties -Dwebdriver.chrome.driver=./chromedriver.exe'
+               bat 'mvn clean test -DconfigPath=./env/qa-env.properties -Dwebdriver.chrome.driver=./chromedriver.exe'
             }
         }
          stage('Publishing results') {
