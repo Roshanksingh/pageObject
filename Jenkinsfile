@@ -11,9 +11,10 @@ pipeline {
     stages {
        stage('Preparation') {
            steps {
+               echo 'cleaning'
+               bat 'rmdir /s /q pageObject'
                echo 'Preparing test run'
                bat "git clone https://github.com/Roshanksingh/pageObject.git"
-               bat "mvn clean compile"
 //                git credentialsId: 'Jenkins_bitbucket', url: 'https://jenkinsbst@bitbucket.org/bst_element/ui_test_automation.git'
             }
         }
