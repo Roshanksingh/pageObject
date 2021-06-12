@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Publishing results') {
           steps{
-           step([$class: 'JUnitResultArchiver', checksName: '', testResults: 'pageObject/target/test-reports/*.xml'])
+             step([$class: 'JUnitResultArchiver', allowEmptyResults: true, checksName: '', testResults: 'pageObject/target/surefire-reports/*.xml'])
           }
         }
     }
