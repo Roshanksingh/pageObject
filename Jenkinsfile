@@ -27,6 +27,6 @@ pipeline {
 //             steps {
 //                 step([$class: 'Publisher', reportFilenamePattern: '**/surefire-reports/testng-results.xml'])
 //             }
-        }
+//         }
     }
 }
